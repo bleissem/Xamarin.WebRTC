@@ -25,18 +25,18 @@ namespace Xamarin.WebRTC.Mobile.Droid
             base.OnCreate(savedInstanceState);
             _conferenceService = new ConferenceService();
             SetContentView(Resource.Layout.Call);
-            //var audioButton = FindViewById<Button>(Resource.Id.muteAudioButton);
-            //var videoButton = FindViewById<Button>(Resource.Id.muteVideoButton);
+            var audioButton = FindViewById<Button>(Resource.Id.muteAudioButton);
+            var videoButton = FindViewById<Button>(Resource.Id.muteVideoButton);
             var videoContainer = FindViewById<RelativeLayout>(Resource.Id.videoContainer);
             await _conferenceService.StartAsync("hodor", videoContainer);
-            //audioButton.Click += (s, a) =>
-            //{
-            //    _conferenceService.ToggleMute();
-            //};
-            //videoButton.Click += (s, a) =>
-            //{
-            //    _conferenceService.ToggleMuteVideo();
-            //};
+            audioButton.Click += (s, a) =>
+            {
+                _conferenceService.ToggleMute();
+            };
+            videoButton.Click += (s, a) =>
+            {
+                _conferenceService.ToggleMuteVideo();
+            };
 
         }
     }

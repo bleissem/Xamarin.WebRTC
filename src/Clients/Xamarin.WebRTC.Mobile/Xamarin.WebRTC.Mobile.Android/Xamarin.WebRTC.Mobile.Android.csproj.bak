@@ -13,12 +13,10 @@
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidApplication>True</AndroidApplication>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
-    <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
     <AssemblyName>Xamarin.WebRTC.Mobile.Android</AssemblyName>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <AndroidLinkMode>None</AndroidLinkMode>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -45,17 +43,19 @@
     <AndroidSupportedAbis>armeabi-v7a;x86;arm64-v8a</AndroidSupportedAbis>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Newtonsoft.Json.9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Mono.Android" />
     <Reference Include="BouncyCastle">
       <HintPath>..\..\..\Components\IceLinkCommunity-2.9.25\lib\android\BouncyCastle.dll</HintPath>
     </Reference>
-    <Reference Include="FM">
-      <HintPath>..\..\..\Components\IceLinkCommunity-2.9.25\lib\android\FM.dll</HintPath>
-    </Reference>
     <Reference Include="FM.Audio">
       <HintPath>..\..\..\Components\IceLinkCommunity-2.9.25\lib\android\FM.Audio.dll</HintPath>
-    </Reference>
-    <Reference Include="FM.IceLink">
-      <HintPath>..\..\..\Components\IceLinkCommunity-2.9.25\lib\android\FM.IceLink.dll</HintPath>
     </Reference>
     <Reference Include="FM.IceLink.WebRTC">
       <HintPath>..\..\..\Components\IceLinkCommunity-2.9.25\lib\android\FM.IceLink.WebRTC.dll</HintPath>
@@ -63,11 +63,11 @@
     <Reference Include="FM.IceLink.WebSync">
       <HintPath>..\..\..\Components\IceLinkCommunity-2.9.25\lib\android\FM.IceLink.WebSync.dll</HintPath>
     </Reference>
+    <Reference Include="FM.IceLink">
+      <HintPath>..\..\..\Components\IceLinkCommunity-2.9.25\lib\android\FM.IceLink.dll</HintPath>
+    </Reference>
     <Reference Include="FM.Video">
       <HintPath>..\..\..\Components\IceLinkCommunity-2.9.25\lib\android\FM.Video.dll</HintPath>
-    </Reference>
-    <Reference Include="FM.WebSync">
-      <HintPath>..\..\..\Components\IceLinkCommunity-2.9.25\lib\android\FM.WebSync.dll</HintPath>
     </Reference>
     <Reference Include="FM.WebSync.Chat">
       <HintPath>..\..\..\Components\IceLinkCommunity-2.9.25\lib\android\FM.WebSync.Chat.dll</HintPath>
@@ -75,16 +75,12 @@
     <Reference Include="FM.WebSync.Subscribers">
       <HintPath>..\..\..\Components\IceLinkCommunity-2.9.25\lib\android\FM.WebSync.Subscribers.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Newtonsoft.Json.10.0.3\lib\netstandard1.3\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="FM.WebSync">
+      <HintPath>..\..\..\Components\IceLinkCommunity-2.9.25\lib\android\FM.WebSync.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.IO.Compression" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Core" />
-    <Reference Include="Mono.Android" />
+    <Reference Include="FM">
+      <HintPath>..\..\..\Components\IceLinkCommunity-2.9.25\lib\android\FM.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Xamarin.WebRTC.Mobile\Xamarin.WebRTC.Mobile.csproj">
@@ -116,9 +112,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="app.config" />
     <AndroidNativeLibrary Include="lib\arm64-v8a\libopus.so">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </AndroidNativeLibrary>
@@ -188,11 +182,4 @@
     </XamarinComponentReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
-  <Import Project="..\..\..\packages\NETStandard.Library.2.0.0\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\..\..\packages\NETStandard.Library.2.0.0\build\netstandard2.0\NETStandard.Library.targets')" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\..\..\packages\NETStandard.Library.2.0.0\build\netstandard2.0\NETStandard.Library.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\NETStandard.Library.2.0.0\build\netstandard2.0\NETStandard.Library.targets'))" />
-  </Target>
 </Project>

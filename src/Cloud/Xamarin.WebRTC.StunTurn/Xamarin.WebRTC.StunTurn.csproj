@@ -37,9 +37,8 @@
       <HintPath>..\..\packages\FM.IceLink.2.9.24\lib\net45\BouncyCastle.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="FM, Version=2.9.24.0, Culture=neutral, PublicKeyToken=be2ad24fd77899bf, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\FM.2.9.24\lib\net45\FM.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="FM, Version=2.9.27.0, Culture=neutral, PublicKeyToken=be2ad24fd77899bf, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FM.2.9.27\lib\net45\FM.dll</HintPath>
     </Reference>
     <Reference Include="FM.IceLink, Version=2.9.24.0, Culture=neutral, PublicKeyToken=be2ad24fd77899bf, processorArchitecture=MSIL">
       <HintPath>..\..\packages\FM.IceLink.2.9.24\lib\net45\FM.IceLink.dll</HintPath>
